@@ -36,7 +36,7 @@ export default function About() {
     <section id="about" className="section about" aria-label="About section">
       <div className="container">
         <AnimatedSection>
-          <span className="section-label" aria-hidden="true">Who I Am</span>
+          <span className="section-label">About Me</span>
           <h2 className="section-title">The Engineer Behind the Code</h2>
         </AnimatedSection>
 
@@ -96,12 +96,12 @@ export default function About() {
               </div>
 
               <p className="about__bio-text">
-                I'm a final-year Information Science student who treats every project like a product — 
-                from architecture to deployment. I specialize in building AI-powered full-stack applications 
+                I'm <strong>Vinayak Chinchakhandi</strong>, a final-year Information Science student who treats every project like a product —
+                from architecture to deployment. I specialize in building AI-powered full-stack applications
                 that tackle real-world problems, combining intelligent backends with clean user experiences.
               </p>
               <p className="about__bio-text">
-                Whether it's a multi-document RAG research platform, an AI metro ticketing system, 
+                Whether it's a multi-document RAG research platform, an AI metro ticketing system,
                 or an open-source geospatial dataset — I engineer for quality, not just functionality.
               </p>
 

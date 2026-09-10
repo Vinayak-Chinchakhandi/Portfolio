@@ -73,7 +73,11 @@ export default function Hero() {
           >
             Hi, I'm
             <br />
-            <span className="hero__name-highlight">{personalInfo.name}</span>
+            <span className="hero__name-highlight">
+              <span className="hero__name-first">Vinayak</span>{' '}
+              <span className="hero__name-last">Chinchakhandi</span>
+            </span>
+            <span className="sr-only"> (Vinayak P C) — Full Stack Developer &amp; AI Engineer Portfolio and About Me</span>
           </motion.h1>
 
           <motion.div

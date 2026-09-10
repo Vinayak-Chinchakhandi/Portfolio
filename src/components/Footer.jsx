@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="footer__brand">
             <div className="footer__logo">VC</div>
             <div>
-              <h2 className="footer__name">{personalInfo.name}</h2>
+              <h2 className="footer__name">{personalInfo.name} <span className="sr-only">(Vinayak P C)</span></h2>
               <p className="footer__title">Full Stack Developer & AI Engineer</p>
             </div>
           </div>

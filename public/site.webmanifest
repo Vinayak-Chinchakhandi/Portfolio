@@ -1,0 +1,16 @@
+{
+  "name": "Vinayak Chinchakhandi (Vinayak P C) — Portfolio",
+  "short_name": "Vinayak P C",
+  "description": "Portfolio of Vinayak Chinchakhandi (Vinayak P C) — Full Stack Developer & AI Engineer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#00f5ff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

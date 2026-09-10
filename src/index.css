@@ -72,6 +72,9 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -79,6 +82,15 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   position: relative;
 }
@@ -101,6 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-primary);
+  overflow-wrap: break-word;
 }
 
 a {
@@ -113,6 +126,7 @@ button {
   border: none;
   background: none;
   font-family: var(--font-sans);
+  touch-action: manipulation;
 }
 
 img, svg {
@@ -322,10 +336,22 @@ img, svg {
 @media (max-width: 768px) {
   :root {
     --section-padding: 80px 0;
+    --container-padding: 0 20px;
   }
 
   .section-title {
-    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-size: clamp(1.65rem, 5vw, 2.2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 60px 0;
+    --container-padding: 0 16px;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 1.85rem);
   }
 }
 
@@ -358,3 +384,17 @@ img, svg {
   background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
   margin: 0 auto;
 }
+
+/* ── Screen Reader & SEO Semantic Utility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+

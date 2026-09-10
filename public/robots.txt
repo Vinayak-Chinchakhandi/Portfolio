@@ -1,0 +1,9 @@
+# robots.txt for https://vinayak-p-c.vercel.app
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vinayak-p-c.vercel.app
+
+# Sitemaps
+Sitemap: https://vinayak-p-c.vercel.app/sitemap.xml

@@ -448,19 +448,75 @@
 @media (max-width: 680px) {
   .projects__grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .project-card__action {
+    opacity: 1;
+  }
+
+  .project-modal-overlay {
+    padding: 12px;
+  }
+
+  .project-modal {
+    padding: 20px 16px;
+    border-radius: 18px;
+    max-height: calc(100vh - 32px);
+  }
+
+  .project-modal__close {
+    top: 14px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .project-modal__header {
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-right: 44px;
+  }
+
+  .project-modal__emoji {
+    font-size: 2.2rem;
+  }
+
+  .project-modal__title {
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
   }
 
   .project-modal__flow {
     flex-direction: column;
+    gap: 8px;
   }
 
   .project-modal__arrow {
     transform: rotate(90deg);
-    margin: -4px auto;
-    margin-top: -4px;
+    margin: -2px auto;
   }
 
-  .project-modal {
-    padding: 24px;
+  .project-modal__links {
+    flex-direction: column;
+  }
+
+  .project-modal__links a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .projects__wip {
+    padding: 20px 16px;
+    border-radius: 16px;
+    gap: 12px;
+  }
+
+  .projects__wip-title {
+    font-size: 1.3rem;
   }
 }

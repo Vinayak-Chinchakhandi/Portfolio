@@ -33,8 +33,8 @@ function ContactItem({ icon: Icon, label, value, href, color, copyable }) {
           className="contact-item__value"
           aria-label={`${label}: ${value}`}
         >
-          {value}
-          {href.startsWith('http') && <ExternalLink size={12} />}
+          <span className="contact-item__text">{value}</span>
+          {href.startsWith('http') && <ExternalLink size={12} className="contact-item__ext" />}
         </a>
       </div>
       {copyable && (
@@ -102,9 +102,9 @@ export default function Contact() {
         <div className="contact__glow" aria-hidden="true" />
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="contact__header"
         >
@@ -124,14 +124,15 @@ export default function Contact() {
           {/* Contact Cards */}
           <motion.div
             className="contact__cards"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             {contactItems.map((item, i) => (
               <motion.div
                 key={item.label}
+                className="contact-item-wrapper"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -145,8 +146,8 @@ export default function Contact() {
           {/* Right Panel */}
           <motion.div
             className="contact__right"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >

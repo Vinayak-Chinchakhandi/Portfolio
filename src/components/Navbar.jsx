@@ -28,6 +28,22 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    if (menuOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   const scrollTo = (href) => {
     const id = href.replace('#', '');
     const el = document.getElementById(id);
@@ -39,9 +55,9 @@ export default function Navbar() {
     <>
       <motion.nav
         className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
         role="navigation"
         aria-label="Main navigation"
       >
@@ -104,40 +120,51 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            className="mobile-menu"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25 }}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile navigation"
-          >
-            <ul role="list">
-              {navLinks.map((link, i) => (
-                <motion.li
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                >
-                  <button
-                    className={`mobile-menu__link ${active === link.href.replace('#', '') ? 'mobile-menu__link--active' : ''}`}
-                    onClick={() => scrollTo(link.href)}
-                  >
-                    {link.label}
-                  </button>
-                </motion.li>
-              ))}
-            </ul>
-            <a
-              href="mailto:vinayakchinchakhandi165@gmail.com"
-              className="mobile-menu__cta"
+          <>
+            <motion.div
+              className="mobile-menu-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.div
+              className="mobile-menu"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.25 }}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation"
             >
-              Let's Talk
-            </a>
-          </motion.div>
+              <ul role="list">
+                {navLinks.map((link, i) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06 }}
+                  >
+                    <button
+                      className={`mobile-menu__link ${active === link.href.replace('#', '') ? 'mobile-menu__link--active' : ''}`}
+                      onClick={() => scrollTo(link.href)}
+                    >
+                      {link.label}
+                    </button>
+                  </motion.li>
+                ))}
+              </ul>
+              <a
+                href="mailto:vinayakchinchakhandi165@gmail.com"
+                className="mobile-menu__cta"
+              >
+                Let's Talk
+              </a>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

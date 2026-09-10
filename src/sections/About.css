@@ -66,10 +66,13 @@
 
 .about__terminal-val-str {
   color: #34d399;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .about__terminal-val-num {
   color: #f59e0b;
+  overflow-wrap: break-word;
 }
 
 /* Bio Text */
@@ -269,16 +272,37 @@
 @media (max-width: 900px) {
   .about__grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
+    margin-top: 36px;
   }
 }
 
 @media (max-width: 480px) {
-  .about__interests-grid {
-    grid-template-columns: 1fr;
+  .about__terminal-body {
+    padding: 16px 14px;
+    gap: 6px;
   }
 
   .about__terminal-line {
-    font-size: 0.75rem;
+    font-size: 0.74rem;
+  }
+
+  .about__edu-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .about__edu-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .about__interests-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .about__certs {
+    padding: 16px 14px;
   }
 }

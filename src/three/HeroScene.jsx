@@ -1,5 +1,5 @@
-﻿import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import React, { useRef, useMemo } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Float, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -167,40 +167,66 @@ function FloatingNode({ position, color, size, speed, offset }) {
   );
 }
 
+/* ── Inner Responsive Scene ── */
+function ResponsiveHeroContent() {
+  const { size } = useThree();
+  const isMobile = size.width < 500;
+  const isTablet = size.width < 900;
+  const scale = isMobile ? 0.72 : isTablet ? 0.85 : 1.0;
+
+  return (
+    <>
+      <ambientLight intensity={0.3} />
+      <pointLight position={[5, 5, 5]} intensity={1.2} color="#00f5ff" />
+      <pointLight position={[-5, -3, 3]} intensity={0.8} color="#a855f7" />
+      <pointLight position={[0, -5, -5]} intensity={0.5} color="#f59e0b" />
+
+      <Stars
+        radius={80}
+        depth={40}
+        count={isMobile ? 350 : 800}
+        factor={4}
+        saturation={0}
+        fade
+        speed={0.5}
+      />
+
+      <group scale={scale}>
+        <NeuralLines />
+        <CoreSphere />
+
+        <OrbitRing radius={2.4} count={isMobile ? 24 : 40} color="#00f5ff" speed={0.006} tilt={0.2} />
+        <OrbitRing radius={3.2} count={isMobile ? 32 : 55} color="#a855f7" speed={-0.004} tilt={0.8} />
+        <OrbitRing radius={3.9} count={isMobile ? 20 : 30} color="#f59e0b" speed={0.003} tilt={1.3} />
+
+        <FloatingNodes />
+      </group>
+
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        enableRotate={!isMobile}
+        maxPolarAngle={Math.PI / 1.5}
+        minPolarAngle={Math.PI / 3}
+        rotateSpeed={0.4}
+        autoRotate
+        autoRotateSpeed={isMobile ? 0.8 : 0.6}
+        touches={isMobile ? { ONE: THREE.TOUCH.NONE, TWO: THREE.TOUCH.NONE } : undefined}
+      />
+    </>
+  );
+}
+
 /* ── Main Hero Scene ── */
 export default function HeroScene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 6], fov: 50 }}
       dpr={[1, 1.5]}
-      gl={{ antialias: true, alpha: true }}
-      style={{ background: 'transparent' }}
+      gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+      style={{ background: 'transparent', touchAction: 'pan-y' }}
     >
-      <ambientLight intensity={0.3} />
-      <pointLight position={[5, 5, 5]} intensity={1.2} color="#00f5ff" />
-      <pointLight position={[-5, -3, 3]} intensity={0.8} color="#a855f7" />
-      <pointLight position={[0, -5, -5]} intensity={0.5} color="#f59e0b" />
-
-      <Stars radius={80} depth={40} count={800} factor={4} saturation={0} fade speed={0.5} />
-
-      <NeuralLines />
-      <CoreSphere />
-
-      <OrbitRing radius={2.4} count={40} color="#00f5ff" speed={0.006} tilt={0.2} />
-      <OrbitRing radius={3.2} count={55} color="#a855f7" speed={-0.004} tilt={0.8} />
-      <OrbitRing radius={3.9} count={30} color="#f59e0b" speed={0.003} tilt={1.3} />
-
-      <FloatingNodes />
-
-      <OrbitControls
-        enableZoom={false}
-        enablePan={false}
-        maxPolarAngle={Math.PI / 1.5}
-        minPolarAngle={Math.PI / 3}
-        rotateSpeed={0.4}
-        autoRotate
-        autoRotateSpeed={0.6}
-      />
+      <ResponsiveHeroContent />
     </Canvas>
   );
 }

@@ -236,19 +236,57 @@
   .github-profile {
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px 16px;
+    border-radius: 16px;
+    gap: 18px;
+    margin-top: 36px;
   }
 
   .github-profile__left {
     flex-direction: column;
     gap: 14px;
+    width: 100%;
+  }
+
+  .github-profile__avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .github-profile__name {
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+  }
+
+  .github-profile__cta {
+    width: 100%;
+    justify-content: center;
   }
 
   .github-repos__grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .github-repo-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .github-repo-card__name {
+    overflow-wrap: break-word;
   }
 
   .github-kaggle {
     flex-direction: column;
     align-items: flex-start;
+    padding: 18px 16px;
+    border-radius: 14px;
+    gap: 14px;
+  }
+
+  .github-kaggle__btn {
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -203,17 +203,22 @@
 
 /* Responsive — Mobile: single column */
 @media (max-width: 768px) {
+  .journey__timeline {
+    margin-top: 40px;
+  }
+
   .journey__line {
-    left: 20px;
+    left: 18px;
   }
 
   .journey__item {
     width: 100%;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding-left: 60px !important;
+    padding-left: 54px !important;
     padding-right: 0 !important;
     flex-direction: row !important;
+    margin-bottom: 36px;
   }
 
   .journey__node {
@@ -221,5 +226,62 @@
     right: auto !important;
     width: 36px;
     height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .journey__timeline {
+    margin-top: 32px;
+  }
+
+  .journey__line {
+    left: 15px;
+  }
+
+  .journey__item {
+    padding-left: 44px !important;
+    margin-bottom: 28px;
+  }
+
+  .journey__node {
+    width: 30px;
+    height: 30px;
+  }
+
+  .journey__card {
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
+
+  .journey__card-title {
+    font-size: 0.92rem;
+    overflow-wrap: break-word;
+  }
+
+  .journey__card-org {
+    font-size: 0.78rem;
+  }
+
+  .journey__card-details li {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .journey__line {
+    left: 13px;
+  }
+
+  .journey__item {
+    padding-left: 38px !important;
+  }
+
+  .journey__node {
+    width: 26px;
+    height: 26px;
+  }
+
+  .journey__card {
+    padding: 12px 10px;
   }
 }

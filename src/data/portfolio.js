@@ -4,8 +4,11 @@
 
 export const personalInfo = {
   name: "Vinayak Chinchakhandi",
+  alternateName: "Vinayak P C",
+  aliases: ["Vinayak", "Vinayak P C", "Vinayak PC", "Vinayak Prakash Chinchakhandi"],
   fullName: "Vinayak Prakash Chinchakhandi",
   title: "Full Stack Developer & AI Engineer",
+  website: "https://vinayak-p-c.vercel.app",
   tagline: "Building Intelligent Systems That Solve Real-World Problems",
   shortBio:
     "Information Science undergraduate passionate about engineering end-to-end AI applications, RAG systems, and production-ready full-stack platforms. I bridge intelligent backend systems with polished user experiences.",

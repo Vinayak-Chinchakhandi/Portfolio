@@ -129,15 +129,35 @@
 }
 
 @media (max-width: 600px) {
+  .footer {
+    padding: 48px 0 28px;
+  }
+
   .footer__top {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
+    position: relative;
+  }
+
+  .footer__brand {
+    padding-right: 56px;
   }
 
   .footer__back-top {
     position: absolute;
-    top: 20px;
-    right: 24px;
+    top: 0;
+    right: 0;
+  }
+
+  .footer__socials {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .footer__social {
+    width: 44px;
+    height: 44px;
   }
 
   .footer__bottom {
