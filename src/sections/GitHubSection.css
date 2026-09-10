@@ -66,34 +66,6 @@
   text-decoration: none;
 }
 
-/* Graph
-.github-graph {
-  margin-top: 28px;
-  padding: 24px;
-  background: rgba(13, 13, 26, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.github-graph__label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-}
-
-.github-graph__img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-} */
-
 /* Repos */
 .github-repos {
   margin-top: 36px;

@@ -79,26 +79,6 @@ export default function GitHubSection() {
           </a>
         </motion.div>
 
-        {/* Contribution graph embed
-        <motion.div
-          className="github-graph"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-        >
-          <div className="github-graph__label">
-            <GitBranch size={14} />
-            Contribution Activity
-          </div>
-          <img
-            src="https://github-readme-activity-graph.vercel.app/graph?username=Vinayak-Chinchakhandi&theme=react-dark&bg_color=0d0d1a&color=00f5ff&line=a855f7&point=f59e0b&area=true&hide_border=true&area_color=00f5ff"
-            alt="GitHub contribution activity graph for Vinayak Chinchakhandi"
-            className="github-graph__img"
-            loading="lazy"
-          />
-        </motion.div> */}
-
         {/* Repos */}
         <div className="github-repos">
           <div className="github-repos__header">
