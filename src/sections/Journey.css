@@ -1,0 +1,225 @@
+.journey__subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: 8px;
+  max-width: 520px;
+}
+
+/* Timeline container */
+.journey__timeline {
+  position: relative;
+  margin-top: 60px;
+  padding: 0 0 40px;
+}
+
+/* Center vertical line */
+.journey__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0, 245, 255, 0.3) 10%,
+    rgba(168, 85, 247, 0.3) 50%,
+    rgba(245, 158, 11, 0.3) 90%,
+    transparent 100%
+  );
+}
+
+/* Timeline items */
+.journey__item {
+  position: relative;
+  display: flex;
+  margin-bottom: 48px;
+  width: 45%;
+}
+
+.journey__item--left {
+  margin-left: 0;
+  flex-direction: row-reverse;
+  margin-right: auto;
+  padding-right: 48px;
+}
+
+.journey__item--right {
+  margin-left: auto;
+  padding-left: 48px;
+}
+
+/* Node */
+.journey__node {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.journey__item--left .journey__node {
+  right: -21px;
+}
+
+.journey__item--right .journey__node {
+  left: -21px;
+}
+
+/* Card */
+.journey__card {
+  flex: 1;
+  padding: 20px 22px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.journey__card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--item-color, rgba(0, 245, 255, 0.2));
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.journey__card--ongoing {
+  border-color: rgba(var(--item-color, 0, 245, 255), 0.2);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
+.journey__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.journey__card-period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.journey__card-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.journey__card-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.journey__card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.journey__card-org {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.journey__card-score {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  background: rgba(0, 245, 255, 0.08);
+  border: 1px solid rgba(0, 245, 255, 0.15);
+  border-radius: 6px;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+}
+
+.journey__card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.journey__card-details li {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.journey__card-details li::before {
+  content: '›';
+  color: var(--item-color, var(--accent-cyan));
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.journey__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.journey__card-link:hover {
+  color: var(--text-primary);
+  gap: 8px;
+}
+
+/* Responsive — Mobile: single column */
+@media (max-width: 768px) {
+  .journey__line {
+    left: 20px;
+  }
+
+  .journey__item {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 60px !important;
+    padding-right: 0 !important;
+    flex-direction: row !important;
+  }
+
+  .journey__node {
+    left: 0 !important;
+    right: auto !important;
+    width: 36px;
+    height: 36px;
+  }
+}
