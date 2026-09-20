@@ -167,6 +167,7 @@ function FloatingNode({ position, color, size, speed, offset }) {
   );
 }
 
+
 /* ── Inner Responsive Scene ── */
 function ResponsiveHeroContent() {
   const { size } = useThree();
@@ -202,16 +203,27 @@ function ResponsiveHeroContent() {
         <FloatingNodes />
       </group>
 
+      {/*
+        OrbitControls drives both:
+          • autoRotate  — continuous background rotation
+          • enableRotate — mouse-down+drag / touch-down+drag rotation
+        enableRotate is ON for all devices.
+        The touches prop is intentionally omitted so OrbitControls uses its
+        own defaults: ONE-finger drag → rotate, TWO-finger pinch → zoom (blocked
+        by enableZoom=false). This makes single-touch drag work on mobile.
+        enableDamping gives a smooth, inertial feel after release.
+      */}
       <OrbitControls
         enableZoom={false}
         enablePan={false}
-        enableRotate={!isMobile}
-        maxPolarAngle={Math.PI / 1.5}
-        minPolarAngle={Math.PI / 3}
-        rotateSpeed={0.4}
-        autoRotate
-        autoRotateSpeed={isMobile ? 0.8 : 0.6}
-        touches={isMobile ? { ONE: THREE.TOUCH.NONE, TWO: THREE.TOUCH.NONE } : undefined}
+        enableRotate={true}
+        enableDamping={true}
+        dampingFactor={0.08}
+        rotateSpeed={0.55}
+        maxPolarAngle={Math.PI / 1.4}
+        minPolarAngle={Math.PI / 3.5}
+        autoRotate={true}
+        autoRotateSpeed={0.6}
       />
     </>
   );
@@ -224,7 +236,7 @@ export default function HeroScene() {
       camera={{ position: [0, 0, 6], fov: 50 }}
       dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-      style={{ background: 'transparent', touchAction: 'pan-y' }}
+      style={{ background: 'transparent', touchAction: 'none' }}
     >
       <ResponsiveHeroContent />
     </Canvas>
