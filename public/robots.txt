@@ -2,8 +2,5 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://vinayak-p-c.vercel.app
-
-# Sitemaps
+# Sitemap
 Sitemap: https://vinayak-p-c.vercel.app/sitemap.xml
